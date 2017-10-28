@@ -8,7 +8,7 @@
     dataservice.$inject = ['$http'];
 
     function dataservice($http) {
-        var baseurl = 'http://localhost:3000/api/';
+        var baseurl = 'http://ec2-52-87-218-36.compute-1.amazonaws.com:3000/api/';
 
         return {
             getCountries: getCountries,
