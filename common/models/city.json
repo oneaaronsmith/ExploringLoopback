@@ -1,0 +1,35 @@
+{
+  "name": "city",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "ID": {
+      "type": "number",
+      "id": true,
+      "required": true
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "CountryCode": {
+      "type": "string",
+      "required": true
+    },
+    "District": {
+      "type": "string",
+      "required": true
+    },
+    "Population": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

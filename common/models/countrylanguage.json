@@ -1,0 +1,31 @@
+{
+  "name": "countrylanguage",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "CountryCode": {
+      "type": "string",
+      "required": true,
+      "id": true
+    },
+    "Language": {
+      "type": "string",
+      "required": true
+    },
+    "IsOfficial": {
+      "type": "enum",
+      "required": true
+    },
+    "Percentage": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

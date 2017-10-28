@@ -1,0 +1,12 @@
+{
+  "world": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "",
+    "database": "world",
+    "password": "password",
+    "name": "world",
+    "user": "root",
+    "connector": "mysql"
+  }
+}

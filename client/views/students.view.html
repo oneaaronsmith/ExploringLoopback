@@ -1,0 +1,82 @@
+<div ng-controller="StudentController as studentList">
+    <h1 class="center">Students</h1>
+    <h3>Student List</h3>
+    <div>
+        There are {{studentList.activeStudents}} active students and {{studentList.inactiveStudents}} inactive students
+    </div><br>
+    <table class="pure-table" ng-if="studentList.activeStudents > 0 || studentList.inactiveStudents > 0">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>GPA</th>
+                <th>Plan</th>
+                <th>Level</th>
+                <th>Active (Toggleable)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="student in studentList.students track by $index">
+                <td>{{$index + 1}}</td>
+                <td>{{student.number}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.address}}</td>
+                <td>{{student.phone}}</td>
+                <td>{{student.gpa}}</td>
+                <td>{{student.plan}}</td>
+                <td>{{student.level}}</td>
+                <td><button class="pure-button" ng-click="studentList.toggleActive(this)">{{student.active === true ? 'active' : 'inactive'}}</button></td>
+                <td><button class="pure-button" ng-click="studentList.students.splice($index,1); studentList.archiveStudents()">Remove</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Add New Student</h3>
+    <div class="pure-form pure-form-aligned">
+        <fieldset>
+            <div class="pure-control-group">
+                <label for="studentNumber">ID</label>
+                <input id="studentNumber" type="text" ng-model="studentList.numberText">
+            </div>
+
+            <div class="pure-control-group">
+                <label for="studentName">Name</label>
+                <input id="studentName" type="text" ng-model="studentList.nameText">
+            </div>
+
+            <div class="pure-control-group">
+                <label for="studentAddress">Address</label>
+                <input id="studentAddress" type="text" ng-model="studentList.addressText">
+            </div>
+
+            <div class="pure-control-group">
+                <label for="studentPhone">Phone Number</label>
+                <input id="studentPhone" type="text" ng-model="studentList.phoneText">
+            </div>
+
+            <div class="pure-control-group">
+                <label for="studentGPA">GPA</label>
+                <input id="studentGPA" type="text" ng-model="studentList.gpaText">
+            </div>
+
+            <div class="pure-control-group">
+                <label for="studentPlan">Plan</label>
+                <input id="studentPlan" type="text" ng-model="studentList.planText">
+            </div>
+
+            <div class="pure-control-group">
+                <label for="studentLevel">Level</label>
+                <input id="studentLevel" type="text" ng-model="studentList.levelText">
+            </div>
+
+            <div class="pure-controls">
+                <button class="pure-button" type="submit" ng-click="studentList.addStudent()">Submit</button>
+                <span class="error" ng-if="studentList.showError">{{studentList.errorMsg}}</span>
+            </div>
+        </fieldset>
+    </div>   
+</div>
