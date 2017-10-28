@@ -8,7 +8,7 @@
     function config($routeProvider) {
         $routeProvider
         .when('/', {
-            templateUrl : "/views/students.view.html"
+            templateUrl : "/views/country.view.html"
         })
         .when('/students', {
             templateUrl : "/views/students.view.html"

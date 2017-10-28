@@ -8,19 +8,23 @@
     dataservice.$inject = ['$http'];
 
     function dataservice($http) {
+        console.log(countryurl);
+
         return {
             getCountries: getCountries,
+            getCountriesWithFilter : getCountriesWithFilter,
             getCities: getCities,
             getLanguages: getLanguages
         };
 
-        function getCountries() {
-            return $http.get('/api/maa')
+        function getCountries(endpoint) {
+            return $http.get(endpoint)
                 .then(getCountriesComplete)
                 .catch(getCountriesFailed);
 
             function getCountriesComplete(response) {
-                return response.data.results;
+                console.log('Well, it should have worked');
+                return response.data;
             }
 
             function getCountriesFailed(error) {
@@ -28,13 +32,30 @@
             }
         }
 
+        function getCountriesWithFilter(endpoint) {
+            return $http.get(endpoint)
+                .then(getCountriesComplete)
+                .catch(getCountriesFailed);
+
+            function getCountriesComplete(response) {
+                console.log('Well, it should have worked');
+                return response.data;
+            }
+
+            function getCountriesFailed(error) {
+                console.error('Failed to retrieve countries:' + error.data);
+            }
+        }
+
+
+
         function getCities() {
             return $http.get('')
                 .then(getCitiesComplete)
                 .catch(getCountriesFailed);
 
             function getCitiesComplete(response) {
-                return response.data.results;
+                return response.data;
             }
 
             function getCitiesFailed(error) {
@@ -48,7 +69,7 @@
                 .catch(getLanguagesFailed);
 
             function getLanguagesComplete(response) {
-                return response.data.results;
+                return response.data;
             }
 
             function getLanguagesFailed(error) {
@@ -56,4 +77,4 @@
             }
         }
     }
-});
+})();

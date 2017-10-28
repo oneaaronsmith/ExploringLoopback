@@ -1,0 +1,80 @@
+<div ng-controller="CountryController as vm">
+    <h1 class="center">Countries</h1>
+    <h3>Country</h3>
+    <div>
+        There are {{vm.countries.length}} countries returned by the LoopBack API for the set filter.
+
+        The API endpoint was: {{vm.endpoint}}
+    </div><br>
+
+    <form class="pure-form">
+        <fieldset>
+
+            <legend>Use Loopback's Built in Filters for Searching:</legend>
+            Filter by:
+
+            <select id="state" ng-model="vm.filterType">
+                <option>Code</option>
+                <option selected="selected">Name</option>
+                <option>Continent</option>
+                <option>Region</option>
+                <option>Surface Area</option>
+                <option>Independence Year</option>
+                <option>Population</option>
+                <option>Life Expectancy</option>
+                <option>GNP</option>
+                <option>Old GNP</option>
+                <option>Local Name</option>
+                <option>Government</option>
+                <option>Head of State</option>
+                <option>Capital</option>
+            </select>
+
+            Search for:
+            <input type="text" ng-model="vm.filterValue">
+    
+            <button type="submit" ng-click="vm.getCountryListByFilter(vm.filterType,vm.filterValue)" class="pure-button pure-button-primary">Submit</button>
+        </fieldset>
+    </form>
+
+    <table class="pure-table" ng-if="vm.showTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Continent</th>
+                <th>Region</th>
+                <th>Surface Area</th>
+                <th>Independence Year</th>
+                <th>Population</th>
+                <th>Life Expectancy</th>
+                <th>GNP</th>
+                <th>Old GNP</th>
+                <th>Local Name</th>
+                <th>Government</th>
+                <th>Head of State</th>
+                <th>Capital</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="country in vm.countries track by $index">
+                <td>{{$index + 1}}</td>
+                <td>{{country.code}}</td>
+                <td>{{country.name}}</td>
+                <td>{{country.continent}}</td>
+                <td>{{country.region}}</td>
+                <td>{{country.surfacearea}}</td>
+                <td>{{country.indepyear}}</td>
+                <td>{{country.population}}</td>
+                <td>{{country.lifeexpectancy}}</td>
+                <td>{{country.gnp}}</td>
+                <td>{{country.gnpold}}</td>
+                <td>{{country.localname}}</td>
+                <td>{{country.governmentform}}</td>
+                <td>{{country.headofstate}}</td>
+                <td>{{country.capital}}</td>
+            </tr>
+        </tbody>
+    </table> 
+</div>
