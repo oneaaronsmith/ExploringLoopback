@@ -3,8 +3,6 @@
     <h3>Country</h3>
     <div>
         There are {{vm.countries.length}} countries returned by the LoopBack API for the set filter.
-
-        The API endpoint was: {{vm.endpoint}}
     </div><br>
 
     <form class="pure-form">
@@ -27,6 +25,8 @@
             <button type="submit" ng-click="vm.getCountryListByFilter(vm.filterType,vm.filterValue)" class="pure-button pure-button-primary">Submit</button>
         </fieldset>
     </form>
+
+    <i ng-if="vm.showSpinner" class="fa fa-circle-o-notch fa-spin fa-3x fa-fw center"></i>
 
     <table class="pure-table" ng-if="vm.showTable">
         <thead>
