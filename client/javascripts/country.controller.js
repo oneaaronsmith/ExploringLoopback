@@ -17,14 +17,12 @@
         vm.showError = false;
         vm.filterType;
         vm.filterValue;
-        vm.baseurl = 'http://localhost:3000/api/countries';
-        vm.endpoint;
+
         //Functions
         vm.getCountryList = getCountryList;
         vm.getCountryListByFilter = getCountryListByFilter;
 
         function getCountryList() {
-            vm.showTable = false;
             dataservice.getCountries()
                 .then(function(data) {
                     if(data != null) {
@@ -38,19 +36,14 @@
                 });
         }
 
-        function getCountryListByFilter(type,value) {
-            vm.showTable = false;
-            dataservice.getCountriesWithFilter(type,value)
+        function getCountryListByFilter() {
+            dataservice.getCountriesWithFilter(vm.filterType,vm.filterValue)
             .then(function(data) {
-                if(data != []) {
-                    console.log('This is what you got:' + data)
+                if(data != null) {
                     vm.countries = data;
                     vm.showTable = true;
                 }
-                else {
-                    vm.showTable = false;
-                    vm.countries = [];
-                }
+                else vm.showTable = false;
                 vm.filterType = '';
                 vm.filterValue = '';
             })

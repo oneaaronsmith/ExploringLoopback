@@ -1,0 +1,51 @@
+<div ng-controller="CityController as vm">
+        <h1 class="center">Cities</h1>
+        <h3>City</h3>
+        <div>
+            There are {{vm.cities.length}} cities are returned by the LoopBack API for the set filter.
+        </div><br>
+    
+        <form class="pure-form">
+            <fieldset>
+    
+                <legend>Use Loopback's Built in Filters for Searching:</legend>
+                Filter by:
+    
+                <select id="city" ng-model="vm.filterType">
+                    <option selected="selected">ID</option>
+                    <option>Name</option>
+                    <option>cityCode</option>
+                    <option>Population</option>
+                    <option>District</option>
+                </select>
+    
+                Filter for:
+                <input type="text" ng-model="vm.filterValue">
+        
+                <button type="submit" ng-click="vm.getCityListByFilter(vm.filterType,vm.filterValue)" class="pure-button pure-button-primary">Submit</button>
+            </fieldset>
+        </form>
+    
+        <table class="pure-table" ng-if="vm.showTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>District</th>
+                    <th>Population</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="city in vm.cities track by $index">
+                    <td>{{$index + 1}}</td>
+                    <td>{{city.ID}}</td>
+                    <td>{{city.Name}}</td>
+                    <td>{{city.CountryCode}}</td>
+                    <td>{{city.District}}</td>
+                    <td>{{city.Population}}</td>
+                </tr>
+            </tbody>
+        </table> 
+    </div>

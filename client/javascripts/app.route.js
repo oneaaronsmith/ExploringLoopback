@@ -10,11 +10,14 @@
         .when('/', {
             templateUrl : "/views/country.view.html"
         })
-        .when('/students', {
-            templateUrl : "/views/students.view.html"
+        .when('/country', {
+            templateUrl : "/views/country.view.html"
         })
-        .when('/books', {
-            templateUrl : "/views/books.view.html"
+        .when('/city', {
+            templateUrl : "/views/city.view.html"
+        })
+        .when('/language', {
+            templateUrl : "/views/language.view.html"
         });
     };
 })();

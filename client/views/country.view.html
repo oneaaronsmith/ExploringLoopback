@@ -14,23 +14,14 @@
             Filter by:
 
             <select id="state" ng-model="vm.filterType">
-                <option>Code</option>
-                <option selected="selected">Name</option>
-                <option>Continent</option>
-                <option>Region</option>
-                <option>Surface Area</option>
-                <option>Independence Year</option>
-                <option>Population</option>
-                <option>Life Expectancy</option>
-                <option>GNP</option>
-                <option>Old GNP</option>
-                <option>Local Name</option>
-                <option>Government</option>
-                <option>Head of State</option>
-                <option>Capital</option>
+                <option selected="selected">name</option>
+                <option>continent</option>
+                <option>region</option>
+                <option>localname</option>
+                <option>government</option>
             </select>
 
-            Search for:
+            Filter for:
             <input type="text" ng-model="vm.filterValue">
     
             <button type="submit" ng-click="vm.getCountryListByFilter(vm.filterType,vm.filterValue)" class="pure-button pure-button-primary">Submit</button>
