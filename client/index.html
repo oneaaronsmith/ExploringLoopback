@@ -12,18 +12,31 @@
     <script src="/javascripts/app.module.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
     <script src="/javascripts/app.route.js"></script>
-    <script src="/javascripts/book.controller.js"></script>
-    <script src="/javascripts/student.controller.js"></script>
+    <script src="/javascripts/app.dataservice.js"></script>
+    <script src="/javascripts/country.controller.js"></script>
+    <script src="/javascripts/city.controller.js"></script>
+    <script src="/javascripts/language.controller.js"></script>
 
     <!-- Include Pure.css Framework Modules -->
     <link rel="stylesheet" type="text/css" href="/stylesheets/pure-min.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/grids-responsive-min.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+
+    <!-- Include font awesome for spinners -->
+    <script src="https://use.fontawesome.com/f8e8974762.js"></script>
 </head>
 <body>
-    <div ng-app="app">
 
-        <p>Choose Page: <a href="#/!">Students</a><span> or </span><a href="#!books">Books</a></p>
+    <div class="pure-menu pure-menu-horizontal">
+        <a href="#" class="pure-menu-heading pure-menu-link">Exploration 3: Loopback API</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="#/!" class="pure-menu-link">Country</a></li>
+            <li class="pure-menu-item"><a href="#!city" class="pure-menu-link">City</a></li>
+            <li class="pure-menu-item"><a href="#!language" class="pure-menu-link">Languages</a></li>
+        </ul>
+    </div>
+        
+    <div ng-app="app">
         <div ng-view></div>
     </div>
    

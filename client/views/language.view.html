@@ -1,0 +1,50 @@
+<div ng-controller="LanguageController as vm">
+        <h1 class="center">Languages</h1>
+        <h3>Language</h3>
+        <div>
+            There are {{vm.languages.length}} languages returned by the LoopBack API for the set filter.
+        </div><br>
+    
+        <form class="pure-form">
+            <fieldset>
+    
+                <legend>Use Loopback's Built in Filters for Searching:</legend>
+                Filter by:
+    
+                <select id="state" ng-model="vm.filterType">
+                    <option selected="selected">CountryCode</option>
+                    <option>Language</option>
+                    <option>IsOfficial</option>
+                    <option>Percentage</option>
+                </select>
+    
+                Filter for:
+                <input type="text" ng-model="vm.filterValue">
+        
+                <button type="submit" ng-click="vm.getLanguageListByFilter(vm.filterType,vm.filterValue)" class="pure-button pure-button-primary">Submit</button>
+            </fieldset>
+        </form>
+    
+        <i ng-if="vm.showSpinner" class="fa fa-circle-o-notch fa-spin fa-3x fa-fw center"></i>
+
+        <table class="pure-table" ng-if="vm.showTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Country</th>
+                    <th>Language</th>
+                    <th>Official</th>
+                    <th>Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="language in vm.languages track by $index">
+                    <td>{{$index + 1}}</td>
+                    <td>{{language.CountryCode}}</td>
+                    <td>{{language.Language}}</td>
+                    <td>{{language.IsOfficial}}</td>
+                    <td>{{language.Percentage}}</td>
+                </tr>
+            </tbody>
+        </table> 
+    </div>
